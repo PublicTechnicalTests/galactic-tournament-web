@@ -1,0 +1,14 @@
+{
+  "APP": {
+    "TITLE": "Torneo Galáctico"
+  },
+  "SIDEBAR": {
+    "TITLE": "Torneo Galáctico",
+    "TOGGLE_OPEN": "Abrir navegación",
+    "TOGGLE_CLOSE": "Cerrar navegación",
+    "MENU": {
+      "DASHBOARD": "Dashboard",
+      "SPECIES": "Especies"
+    }
+  }
+}
