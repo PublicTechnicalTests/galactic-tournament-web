@@ -1,0 +1,124 @@
+<div class="list-species">
+
+  <!-- ── Toolbar ───────────────────────────────────────────────────────────── -->
+  <div class="list-species__toolbar">
+    <div class="list-species__search">
+      <label for="species-search" class="list-species__search-label">
+        {{ 'SPECIES.LIST.SEARCH_LABEL' | translate }}
+      </label>
+      <input
+        id="species-search"
+        class="list-species__search-input"
+        type="search"
+        [formControl]="searchControl"
+        [placeholder]="'SPECIES.LIST.SEARCH_PLACEHOLDER' | translate"
+        [attr.aria-label]="'SPECIES.LIST.SEARCH_LABEL' | translate"
+        autocomplete="off"
+      />
+    </div>
+
+    <div class="list-species__page-size">
+      <label for="page-size" class="list-species__search-label">
+        {{ 'SPECIES.LIST.PAGE_SIZE' | translate }}
+      </label>
+      <select
+        id="page-size"
+        class="list-species__select"
+        [attr.aria-label]="'SPECIES.LIST.PAGE_SIZE' | translate"
+        (change)="onPageSizeChange($event)"
+      >
+        @for (size of pageSizeOptions; track size) {
+          <option [value]="size" [selected]="size === pageSize()">{{ size }}</option>
+        }
+      </select>
+    </div>
+  </div>
+
+  <!-- ── Table ─────────────────────────────────────────────────────────────── -->
+  <div class="list-species__table-wrapper" role="region" [attr.aria-label]="'SPECIES.LIST.TABLE_ARIA' | translate">
+    @if (page().total === 0) {
+      <p class="list-species__empty" role="status">
+        {{ 'SPECIES.LIST.EMPTY' | translate }}
+      </p>
+    } @else {
+      <table class="species-table" aria-describedby="species-caption">
+        <caption id="species-caption" class="sr-only">
+          {{ 'SPECIES.LIST.TABLE_CAPTION' | translate }}
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col" [attr.aria-sort]="ariaSort('name')">
+              <button class="species-table__sort-btn" type="button" (click)="sortBy('name')">
+                {{ 'SPECIES.LIST.COL_NAME' | translate }}{{ sortIndicator('name') }}
+              </button>
+            </th>
+            <th scope="col" [attr.aria-sort]="ariaSort('power')">
+              <button class="species-table__sort-btn" type="button" (click)="sortBy('power')">
+                {{ 'SPECIES.LIST.COL_POWER' | translate }}{{ sortIndicator('power') }}
+              </button>
+            </th>
+            <th scope="col" [attr.aria-sort]="ariaSort('ability')">
+              <button class="species-table__sort-btn" type="button" (click)="sortBy('ability')">
+                {{ 'SPECIES.LIST.COL_ABILITY' | translate }}{{ sortIndicator('ability') }}
+              </button>
+            </th>
+            <th scope="col" [attr.aria-sort]="ariaSort('createdAt')">
+              <button class="species-table__sort-btn" type="button" (click)="sortBy('createdAt')">
+                {{ 'SPECIES.LIST.COL_CREATED' | translate }}{{ sortIndicator('createdAt') }}
+              </button>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (species of page().items; track species.id) {
+            <tr>
+              <td>{{ species.name }}</td>
+              <td>{{ species.power }}</td>
+              <td>{{ species.ability }}</td>
+              <td>{{ species.createdAt | slice:0:10 }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    }
+  </div>
+
+  <!-- ── Pagination ─────────────────────────────────────────────────────────── -->
+  @if (page().totalPages > 1) {
+    <nav class="list-species__pagination" [attr.aria-label]="'SPECIES.LIST.PAGINATION_ARIA' | translate">
+      <button
+        class="pagination__btn"
+        type="button"
+        [disabled]="currentPage() === 1"
+        [attr.aria-disabled]="currentPage() === 1"
+        [attr.aria-label]="'SPECIES.LIST.PREV_PAGE' | translate"
+        (click)="prevPage()"
+      >‹</button>
+
+      @for (p of pageRange(); track p) {
+        <button
+          class="pagination__btn"
+          type="button"
+          [class.pagination__btn--active]="p === currentPage()"
+          [attr.aria-current]="p === currentPage() ? 'page' : null"
+          [attr.aria-label]="('SPECIES.LIST.PAGE' | translate) + ' ' + p"
+          (click)="goToPage(p)"
+        >{{ p }}</button>
+      }
+
+      <button
+        class="pagination__btn"
+        type="button"
+        [disabled]="currentPage() === page().totalPages"
+        [attr.aria-disabled]="currentPage() === page().totalPages"
+        [attr.aria-label]="'SPECIES.LIST.NEXT_PAGE' | translate"
+        (click)="nextPage()"
+      >›</button>
+
+      <span class="pagination__info" aria-live="polite">
+        {{ 'SPECIES.LIST.PAGE_INFO' | translate:{ current: currentPage(), total: page().totalPages, count: page().total } }}
+      </span>
+    </nav>
+  }
+
+</div>

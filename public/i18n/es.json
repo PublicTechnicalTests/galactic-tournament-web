@@ -2,6 +2,31 @@
   "APP": {
     "TITLE": "Torneo Galáctico"
   },
+  "SPECIES": {
+    "TITLE": "Especies Galácticas",
+    "SUBTITLE": "Registro de especies del universo",
+    "ADD": {
+      "OPEN_BTN": "Nueva Especie",
+      "OPEN_BTN_ARIA": "Abrir formulario para registrar una nueva especie"
+    },
+    "LIST": {
+      "SEARCH_LABEL": "Buscar especie",
+      "SEARCH_PLACEHOLDER": "Nombre o habilidad...",
+      "PAGE_SIZE": "Por página",
+      "TABLE_ARIA": "Tabla de especies registradas",
+      "TABLE_CAPTION": "Listado de especies galácticas",
+      "EMPTY": "No se encontraron especies. Registra una nueva para comenzar.",
+      "COL_NAME": "Nombre",
+      "COL_POWER": "Poder",
+      "COL_ABILITY": "Habilidad",
+      "COL_CREATED": "Registro",
+      "PREV_PAGE": "Página anterior",
+      "NEXT_PAGE": "Página siguiente",
+      "PAGE": "Página",
+      "PAGINATION_ARIA": "Navegación de páginas",
+      "PAGE_INFO": "Página {{current}} de {{total}} — {{count}} resultados"
+    }
+  },
   "SIDEBAR": {
     "TITLE": "Torneo Galáctico",
     "TOGGLE_OPEN": "Abrir navegación",

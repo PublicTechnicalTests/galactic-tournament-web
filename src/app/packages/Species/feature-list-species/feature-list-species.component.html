@@ -1,0 +1,24 @@
+<div class="feature-list-species">
+
+  <!-- ── Header ────────────────────────────────────────────────────────────── -->
+  <div class="feature-list-species__header">
+    <div>
+      <h1 class="feature-list-species__title">{{ 'SPECIES.TITLE' | translate }}</h1>
+      <p class="feature-list-species__subtitle">{{ 'SPECIES.SUBTITLE' | translate }}</p>
+    </div>
+    <button
+      class="btn btn--primary"
+      type="button"
+      [attr.aria-label]="'SPECIES.ADD.OPEN_BTN_ARIA' | translate"
+      (click)="openAddModal()"
+    >
+      + {{ 'SPECIES.ADD.OPEN_BTN' | translate }}
+    </button>
+  </div>
+
+  <!-- ── Species list ──────────────────────────────────────────────────────── -->
+  <app-list-species></app-list-species>
+
+  <!-- Add-species modal will be inserted here in feature-04 -->
+
+</div>

@@ -14,6 +14,13 @@ export const routes: Routes = [
             (m) => m.DASHBOARD_ROUTES
           ),
       },
+      {
+        path: 'species',
+        loadChildren: () =>
+          import('./packages/Species/species.routes').then(
+            (m) => m.SPECIES_ROUTES
+          ),
+      },
       // Additional feature routes are registered iteratively in subsequent features
     ],
   },
