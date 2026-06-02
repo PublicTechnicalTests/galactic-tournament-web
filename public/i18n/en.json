@@ -2,6 +2,31 @@
   "APP": {
     "TITLE": "Galactic Tournament"
   },
+  "SPECIES": {
+    "TITLE": "Galactic Species",
+    "SUBTITLE": "Universe species registry",
+    "ADD": {
+      "OPEN_BTN": "New Species",
+      "OPEN_BTN_ARIA": "Open form to register a new species"
+    },
+    "LIST": {
+      "SEARCH_LABEL": "Search species",
+      "SEARCH_PLACEHOLDER": "Name or ability...",
+      "PAGE_SIZE": "Per page",
+      "TABLE_ARIA": "Registered species table",
+      "TABLE_CAPTION": "Galactic species list",
+      "EMPTY": "No species found. Register a new one to get started.",
+      "COL_NAME": "Name",
+      "COL_POWER": "Power",
+      "COL_ABILITY": "Ability",
+      "COL_CREATED": "Registered",
+      "PREV_PAGE": "Previous page",
+      "NEXT_PAGE": "Next page",
+      "PAGE": "Page",
+      "PAGINATION_ARIA": "Page navigation",
+      "PAGE_INFO": "Page {{current}} of {{total}} — {{count}} results"
+    }
+  },
   "SIDEBAR": {
     "TITLE": "Galactic Tournament",
     "TOGGLE_OPEN": "Open navigation",

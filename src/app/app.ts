@@ -19,9 +19,9 @@ export class App implements OnInit {
   private readonly translate = inject(TranslateService);
 
   ngOnInit(): void {
-    this.translate.addLangs(['es', 'en']);
-    this.translate.setDefaultLang('es');
-    this.translate.use('es');
+        this.translate.addLangs(['es', 'en']);
+        this.translate.setFallbackLang('es');
+        this.translate.use('es');
   }
 }
 
