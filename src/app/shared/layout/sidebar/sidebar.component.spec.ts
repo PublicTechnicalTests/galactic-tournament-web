@@ -27,9 +27,9 @@ describe('SidebarComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render two navigation links', () => {
+  it('should render three navigation links', () => {
     const links = nativeEl.querySelectorAll('.sidebar__nav-link');
-    expect(links.length).toBe(2);
+    expect(links.length).toBe(3);
   });
 
   it('should start in expanded state', () => {
@@ -88,11 +88,11 @@ describe('SidebarComponent', () => {
 
   it('should show nav labels when expanded', () => {
     const labels = nativeEl.querySelectorAll('.sidebar__nav-label');
-    expect(labels.length).toBe(2);
+    expect(labels.length).toBe(3);
   });
 
   it('should render icons with aria-hidden', () => {
     const icons = nativeEl.querySelectorAll('.sidebar__nav-icon[aria-hidden="true"]');
-    expect(icons.length).toBe(2);
+    expect(icons.length).toBe(3);
   });
 });
