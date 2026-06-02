@@ -1,0 +1,112 @@
+{
+  "APP": {
+    "TITLE": "Galactic Tournament"
+  },
+  "SPECIES": {
+    "TITLE": "Galactic Species",
+    "SUBTITLE": "Universe species registry",
+    "ADD": {
+      "OPEN_BTN": "New Species",
+      "OPEN_BTN_ARIA": "Open form to register a new species",
+      "FORM": {
+        "TITLE": "Register New Species",
+        "CLOSE_ARIA": "Close form",
+        "NAME_LABEL": "Name",
+        "NAME_REQUIRED": "Name is required.",
+        "NAME_MAXLENGTH": "Name cannot exceed 100 characters.",
+        "POWER_LABEL": "Power",
+        "POWER_REQUIRED": "Power is required.",
+        "POWER_RANGE": "Power must be between 1 and 9999.",
+        "ABILITY_LABEL": "Ability",
+        "ABILITY_REQUIRED": "Ability is required.",
+        "ABILITY_MAXLENGTH": "Ability cannot exceed 255 characters.",
+        "CANCEL_BTN": "Cancel",
+        "SUBMIT_BTN": "Save Species"
+      },
+      "CONFIRM_CANCEL": {
+        "TITLE": "Discard changes?",
+        "MESSAGE": "The operation will be cancelled and all entered data will be lost. Do you want to continue?",
+        "STAY_BTN": "Keep editing",
+        "LEAVE_BTN": "Yes, discard"
+      }
+    },
+    "LIST": {
+      "SEARCH_LABEL": "Search species",
+      "SEARCH_PLACEHOLDER": "Name or ability...",
+      "PAGE_SIZE": "Per page",
+      "TABLE_ARIA": "Registered species table",
+      "TABLE_CAPTION": "Galactic species list",
+      "EMPTY": "No species found. Register a new one to get started.",
+      "COL_NAME": "Name",
+      "COL_POWER": "Power",
+      "COL_ABILITY": "Ability",
+      "COL_CREATED": "Registered",
+      "PREV_PAGE": "Previous page",
+      "NEXT_PAGE": "Next page",
+      "PAGE": "Page",
+      "PAGINATION_ARIA": "Page navigation",
+      "PAGE_INFO": "Page {{current}} of {{total}} — {{count}} results"
+    }
+  },
+  "SIDEBAR": {
+    "TITLE": "Galactic Tournament",
+    "TOGGLE_OPEN": "Open navigation",
+    "TOGGLE_CLOSE": "Close navigation",
+    "MENU": {
+      "DASHBOARD": "Dashboard",
+      "SPECIES": "Species",
+      "RANKING": "Ranking"
+    }
+  },
+  "RANKING": {
+    "TITLE": "Galactic Ranking",
+    "SUBTITLE": "Global standings of universe combatants",
+    "SIMULATING": "Simulating...",
+    "EMPTY": "No combats recorded yet. Simulate a tournament to see the ranking.",
+    "ACTIONS": {
+      "ARIA": "Tournament actions",
+      "SIMULATE_TOURNAMENT": "Simulate Tournament",
+      "SIMULATE_TOURNAMENT_ARIA": "Start a full galactic tournament simulation",
+      "SIMULATE_COMBAT": "Simulate Combat",
+      "SIMULATE_COMBAT_ARIA": "Start a single combat simulation"
+    },
+    "TABLE": {
+      "REGION_ARIA": "Galactic ranking table",
+      "CAPTION": "Galactic tournament species standings",
+      "POSITION": "Pos.",
+      "SPECIES": "Species",
+      "WINS": "Wins",
+      "LOSSES": "Losses",
+      "POINTS": "Points"
+    }
+  },
+  "DASHBOARD": {
+    "TITLE": "Dashboard",
+    "SUBTITLE": "Galactic Tournament Control Panel",
+    "ACTIONS": {
+      "TITLE": "Actions",
+      "SIMULATE_TOURNAMENT": "Simulate Tournament",
+      "SIMULATE_TOURNAMENT_ARIA": "Start a full galactic tournament simulation",
+      "SIMULATE_COMBAT": "Simulate Combat",
+      "SIMULATE_COMBAT_ARIA": "Start a single combat simulation"
+    },
+    "RANKING": {
+      "TITLE": "Ranking",
+      "SUBTITLE": "Current combatant standings",
+      "EMPTY": "No combats recorded yet. Simulate a tournament to see the ranking.",
+      "TABLE": {
+        "POSITION": "Pos.",
+        "SPECIES": "Species",
+        "WINS": "Wins",
+        "LOSSES": "Losses",
+        "POINTS": "Points"
+      }
+    },
+    "SIMULATION": {
+      "TOURNAMENT_RUNNING": "Simulating tournament...",
+      "COMBAT_RUNNING": "Simulating combat...",
+      "TOURNAMENT_DONE": "Tournament completed!",
+      "COMBAT_DONE": "Combat completed!"
+    }
+  }
+}

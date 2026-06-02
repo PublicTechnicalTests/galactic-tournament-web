@@ -1,0 +1,205 @@
+// ─── Page layout ─────────────────────────────────────────────────────────────
+.feature-list-ranking {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  // ── Header ──────────────────────────────────────────────────────────────────
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  &__title {
+    margin: 0 0 0.25rem;
+    font-size: 1.75rem;
+    color: #a78bfa;
+  }
+
+  &__subtitle {
+    margin: 0;
+    color: #94a3b8;
+    font-size: 0.9rem;
+  }
+
+  // ── Action buttons ───────────────────────────────────────────────────────────
+  &__actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  // ── Status line ─────────────────────────────────────────────────────────────
+  &__status {
+    color: #a78bfa;
+    font-style: italic;
+    margin: 0;
+    animation: pulse 1.2s ease-in-out infinite;
+  }
+
+  // ── Table wrapper ────────────────────────────────────────────────────────────
+  &__table-wrapper {
+    overflow-x: auto;
+    border-radius: 8px;
+    border: 1px solid #2d2d44;
+  }
+
+  // ── Empty state ──────────────────────────────────────────────────────────────
+  &__empty {
+    padding: 3rem 1.5rem;
+    text-align: center;
+    color: #64748b;
+    font-style: italic;
+    margin: 0;
+  }
+}
+
+// ─── Ranking table ────────────────────────────────────────────────────────────
+.ranking-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+
+  caption {
+    // hidden visually but visible to screen readers
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+
+  thead tr {
+    background: #1a1a2e;
+    border-bottom: 2px solid #2d2d44;
+  }
+
+  th {
+    padding: 0.875rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #a78bfa;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+
+  tbody tr {
+    border-bottom: 1px solid #1e1e30;
+    transition: background 0.15s;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:hover {
+      background: #1a1a2e;
+    }
+
+    &--podium {
+      background: rgba(167, 139, 250, 0.06);
+    }
+  }
+
+  td {
+    padding: 0.75rem 1rem;
+    color: #e2e8f0;
+    vertical-align: middle;
+  }
+
+  // ── Cell variants ────────────────────────────────────────────────────────────
+  &__position {
+    font-size: 1.15rem;
+    min-width: 3rem;
+    text-align: center;
+  }
+
+  &__species {
+    font-weight: 600;
+  }
+
+  &__wins {
+    color: #4ade80;
+    font-weight: 600;
+  }
+
+  &__losses {
+    color: #f87171;
+  }
+
+  &__points-badge {
+    display: inline-block;
+    background: rgba(167, 139, 250, 0.15);
+    color: #a78bfa;
+    border: 1px solid rgba(167, 139, 250, 0.3);
+    border-radius: 12px;
+    padding: 0.2rem 0.65rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+    min-width: 2.5rem;
+    text-align: center;
+  }
+}
+
+// ─── Shared screen-reader utility ─────────────────────────────────────────────
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// ─── Buttons ─────────────────────────────────────────────────────────────────
+.btn {
+  padding: 0.5rem 1.1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.2s, background 0.2s;
+
+  &:focus-visible {
+    outline: 2px solid #a78bfa;
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+
+  &--primary {
+    background: #a78bfa;
+    color: #0f0f1a;
+
+    &:not(:disabled):hover {
+      opacity: 0.85;
+    }
+  }
+
+  &--secondary {
+    background: #2d2d44;
+    color: #e2e8f0;
+
+    &:not(:disabled):hover {
+      background: #3d3d5c;
+    }
+  }
+}
+
+// ─── Animation ───────────────────────────────────────────────────────────────
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.45; }
+}

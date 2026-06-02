@@ -1,0 +1,30 @@
+<div class="feature-list-species">
+
+  <!-- ── Header ────────────────────────────────────────────────────────────── -->
+  <div class="feature-list-species__header">
+    <div>
+      <h1 class="feature-list-species__title">{{ 'SPECIES.TITLE' | translate }}</h1>
+      <p class="feature-list-species__subtitle">{{ 'SPECIES.SUBTITLE' | translate }}</p>
+    </div>
+    <button
+      class="btn btn--primary"
+      type="button"
+      [attr.aria-label]="'SPECIES.ADD.OPEN_BTN_ARIA' | translate"
+      (click)="openAddModal()"
+    >
+      + {{ 'SPECIES.ADD.OPEN_BTN' | translate }}
+    </button>
+  </div>
+
+  <!-- ── Species list ──────────────────────────────────────────────────────── -->
+  <app-list-species></app-list-species>
+
+  <!-- Add-species modal -->
+  @if (showAddModal()) {
+    <app-add-species
+      (added)="onSpeciesAdded()"
+      (cancelled)="onAddCancelled()"
+    ></app-add-species>
+  }
+
+</div>

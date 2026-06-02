@@ -1,12 +1,27 @@
-import { Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
+/**
+ * AppComponent
+ *
+ * Root bootstrapped component. Initialises the i18n translation service
+ * and delegates all routing to the router-outlet.
+ */
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.scss'
+  template: `<router-outlet></router-outlet>`,
+  styles: [':host { display: block; height: 100vh; }'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class App {
-  protected readonly title = signal('galactic-tournament-web');
+export class App implements OnInit {
+  private readonly translate = inject(TranslateService);
+
+  ngOnInit(): void {
+        this.translate.addLangs(['es', 'en']);
+        this.translate.setFallbackLang('es');
+        this.translate.use('es');
+  }
 }
+

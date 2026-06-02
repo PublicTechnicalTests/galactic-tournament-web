@@ -1,0 +1,112 @@
+{
+  "APP": {
+    "TITLE": "Torneo Galáctico"
+  },
+  "SPECIES": {
+    "TITLE": "Especies Galácticas",
+    "SUBTITLE": "Registro de especies del universo",
+    "ADD": {
+      "OPEN_BTN": "Nueva Especie",
+      "OPEN_BTN_ARIA": "Abrir formulario para registrar una nueva especie",
+      "FORM": {
+        "TITLE": "Registrar Nueva Especie",
+        "CLOSE_ARIA": "Cerrar formulario",
+        "NAME_LABEL": "Nombre",
+        "NAME_REQUIRED": "El nombre es obligatorio.",
+        "NAME_MAXLENGTH": "El nombre no puede superar 100 caracteres.",
+        "POWER_LABEL": "Poder",
+        "POWER_REQUIRED": "El poder es obligatorio.",
+        "POWER_RANGE": "El poder debe estar entre 1 y 9999.",
+        "ABILITY_LABEL": "Habilidad",
+        "ABILITY_REQUIRED": "La habilidad es obligatoria.",
+        "ABILITY_MAXLENGTH": "La habilidad no puede superar 255 caracteres.",
+        "CANCEL_BTN": "Cancelar",
+        "SUBMIT_BTN": "Guardar Especie"
+      },
+      "CONFIRM_CANCEL": {
+        "TITLE": "¿Descartar cambios?",
+        "MESSAGE": "La operación se cancelará y los datos ingresados se perderán. ¿Desea continuar?",
+        "STAY_BTN": "Continuar editando",
+        "LEAVE_BTN": "Sí, descartar"
+      }
+    },
+    "LIST": {
+      "SEARCH_LABEL": "Buscar especie",
+      "SEARCH_PLACEHOLDER": "Nombre o habilidad...",
+      "PAGE_SIZE": "Por página",
+      "TABLE_ARIA": "Tabla de especies registradas",
+      "TABLE_CAPTION": "Listado de especies galácticas",
+      "EMPTY": "No se encontraron especies. Registra una nueva para comenzar.",
+      "COL_NAME": "Nombre",
+      "COL_POWER": "Poder",
+      "COL_ABILITY": "Habilidad",
+      "COL_CREATED": "Registro",
+      "PREV_PAGE": "Página anterior",
+      "NEXT_PAGE": "Página siguiente",
+      "PAGE": "Página",
+      "PAGINATION_ARIA": "Navegación de páginas",
+      "PAGE_INFO": "Página {{current}} de {{total}} — {{count}} resultados"
+    }
+  },
+  "SIDEBAR": {
+    "TITLE": "Torneo Galáctico",
+    "TOGGLE_OPEN": "Abrir navegación",
+    "TOGGLE_CLOSE": "Cerrar navegación",
+    "MENU": {
+      "DASHBOARD": "Dashboard",
+      "SPECIES": "Especies",
+      "RANKING": "Ranking"
+    }
+  },
+  "RANKING": {
+    "TITLE": "Ranking Galáctico",
+    "SUBTITLE": "Clasificación global de combatientes del universo",
+    "SIMULATING": "Simulando...",
+    "EMPTY": "No hay combates registrados aún. Simula un torneo para ver el ranking.",
+    "ACTIONS": {
+      "ARIA": "Acciones del torneo",
+      "SIMULATE_TOURNAMENT": "Simular Torneo",
+      "SIMULATE_TOURNAMENT_ARIA": "Iniciar simulación completa del torneo galáctico",
+      "SIMULATE_COMBAT": "Simular Combate",
+      "SIMULATE_COMBAT_ARIA": "Iniciar simulación de un combate individual"
+    },
+    "TABLE": {
+      "REGION_ARIA": "Tabla del ranking galáctico",
+      "CAPTION": "Clasificación de especies del torneo galáctico",
+      "POSITION": "Pos.",
+      "SPECIES": "Especie",
+      "WINS": "Victorias",
+      "LOSSES": "Derrotas",
+      "POINTS": "Puntos"
+    }
+  },
+  "DASHBOARD": {
+    "TITLE": "Dashboard",
+    "SUBTITLE": "Panel de control del Torneo Galáctico",
+    "ACTIONS": {
+      "TITLE": "Acciones",
+      "SIMULATE_TOURNAMENT": "Simular Torneo",
+      "SIMULATE_TOURNAMENT_ARIA": "Iniciar simulación completa del torneo galáctico",
+      "SIMULATE_COMBAT": "Simular Combate",
+      "SIMULATE_COMBAT_ARIA": "Iniciar simulación de un combate individual"
+    },
+    "RANKING": {
+      "TITLE": "Ranking",
+      "SUBTITLE": "Clasificación actual de los combatientes",
+      "EMPTY": "No hay combates registrados aún. Simula un torneo para ver el ranking.",
+      "TABLE": {
+        "POSITION": "Pos.",
+        "SPECIES": "Especie",
+        "WINS": "Victorias",
+        "LOSSES": "Derrotas",
+        "POINTS": "Puntos"
+      }
+    },
+    "SIMULATION": {
+      "TOURNAMENT_RUNNING": "Simulando torneo...",
+      "COMBAT_RUNNING": "Simulando combate...",
+      "TOURNAMENT_DONE": "¡Torneo completado!",
+      "COMBAT_DONE": "¡Combate completado!"
+    }
+  }
+}
