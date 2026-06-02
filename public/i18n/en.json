@@ -7,7 +7,28 @@
     "SUBTITLE": "Universe species registry",
     "ADD": {
       "OPEN_BTN": "New Species",
-      "OPEN_BTN_ARIA": "Open form to register a new species"
+      "OPEN_BTN_ARIA": "Open form to register a new species",
+      "FORM": {
+        "TITLE": "Register New Species",
+        "CLOSE_ARIA": "Close form",
+        "NAME_LABEL": "Name",
+        "NAME_REQUIRED": "Name is required.",
+        "NAME_MAXLENGTH": "Name cannot exceed 100 characters.",
+        "POWER_LABEL": "Power",
+        "POWER_REQUIRED": "Power is required.",
+        "POWER_RANGE": "Power must be between 1 and 9999.",
+        "ABILITY_LABEL": "Ability",
+        "ABILITY_REQUIRED": "Ability is required.",
+        "ABILITY_MAXLENGTH": "Ability cannot exceed 255 characters.",
+        "CANCEL_BTN": "Cancel",
+        "SUBMIT_BTN": "Save Species"
+      },
+      "CONFIRM_CANCEL": {
+        "TITLE": "Discard changes?",
+        "MESSAGE": "The operation will be cancelled and all entered data will be lost. Do you want to continue?",
+        "STAY_BTN": "Keep editing",
+        "LEAVE_BTN": "Yes, discard"
+      }
     },
     "LIST": {
       "SEARCH_LABEL": "Search species",

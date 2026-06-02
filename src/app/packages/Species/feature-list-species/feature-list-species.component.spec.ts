@@ -47,12 +47,38 @@ describe('FeatureListSpeciesComponent', () => {
     expect(btn.getAttribute('aria-label')).toBeTruthy();
   });
 
-  // ── Integration ────────────────────────────────────────────────────────────
+  // ── Modal integration ──────────────────────────────────────────────────────
 
   it('should expose openAddModal, onSpeciesAdded and onAddCancelled methods', () => {
     const c = component as unknown as Record<string, unknown>;
     expect(typeof c['openAddModal']).toBe('function');
     expect(typeof c['onSpeciesAdded']).toBe('function');
     expect(typeof c['onAddCancelled']).toBe('function');
+  });
+
+  it('modal should NOT be visible initially', () => {
+    expect(nativeEl.querySelector('app-add-species')).toBeNull();
+  });
+
+  it('modal should appear after openAddModal()', () => {
+    (component as unknown as Record<string, () => void>)['openAddModal']();
+    fixture.detectChanges();
+    expect(nativeEl.querySelector('app-add-species')).not.toBeNull();
+  });
+
+  it('modal should disappear after onAddCancelled()', () => {
+    (component as unknown as Record<string, () => void>)['openAddModal']();
+    fixture.detectChanges();
+    (component as unknown as Record<string, () => void>)['onAddCancelled']();
+    fixture.detectChanges();
+    expect(nativeEl.querySelector('app-add-species')).toBeNull();
+  });
+
+  it('modal should disappear after onSpeciesAdded()', () => {
+    (component as unknown as Record<string, () => void>)['openAddModal']();
+    fixture.detectChanges();
+    (component as unknown as Record<string, () => void>)['onSpeciesAdded']();
+    fixture.detectChanges();
+    expect(nativeEl.querySelector('app-add-species')).toBeNull();
   });
 });

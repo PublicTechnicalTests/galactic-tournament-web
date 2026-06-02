@@ -7,7 +7,28 @@
     "SUBTITLE": "Registro de especies del universo",
     "ADD": {
       "OPEN_BTN": "Nueva Especie",
-      "OPEN_BTN_ARIA": "Abrir formulario para registrar una nueva especie"
+      "OPEN_BTN_ARIA": "Abrir formulario para registrar una nueva especie",
+      "FORM": {
+        "TITLE": "Registrar Nueva Especie",
+        "CLOSE_ARIA": "Cerrar formulario",
+        "NAME_LABEL": "Nombre",
+        "NAME_REQUIRED": "El nombre es obligatorio.",
+        "NAME_MAXLENGTH": "El nombre no puede superar 100 caracteres.",
+        "POWER_LABEL": "Poder",
+        "POWER_REQUIRED": "El poder es obligatorio.",
+        "POWER_RANGE": "El poder debe estar entre 1 y 9999.",
+        "ABILITY_LABEL": "Habilidad",
+        "ABILITY_REQUIRED": "La habilidad es obligatoria.",
+        "ABILITY_MAXLENGTH": "La habilidad no puede superar 255 caracteres.",
+        "CANCEL_BTN": "Cancelar",
+        "SUBMIT_BTN": "Guardar Especie"
+      },
+      "CONFIRM_CANCEL": {
+        "TITLE": "¿Descartar cambios?",
+        "MESSAGE": "La operación se cancelará y los datos ingresados se perderán. ¿Desea continuar?",
+        "STAY_BTN": "Continuar editando",
+        "LEAVE_BTN": "Sí, descartar"
+      }
     },
     "LIST": {
       "SEARCH_LABEL": "Buscar especie",
