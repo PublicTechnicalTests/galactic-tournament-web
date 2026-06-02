@@ -1,0 +1,14 @@
+{
+  "APP": {
+    "TITLE": "Galactic Tournament"
+  },
+  "SIDEBAR": {
+    "TITLE": "Galactic Tournament",
+    "TOGGLE_OPEN": "Open navigation",
+    "TOGGLE_CLOSE": "Close navigation",
+    "MENU": {
+      "DASHBOARD": "Dashboard",
+      "SPECIES": "Species"
+    }
+  }
+}

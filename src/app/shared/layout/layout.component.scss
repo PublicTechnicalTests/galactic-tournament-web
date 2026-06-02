@@ -1,0 +1,40 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #a78bfa;
+  color: #0f0f1a;
+  padding: 0.5rem 1rem;
+  z-index: 1000;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0 0 4px 0;
+  transition: top 0.2s;
+
+  &:focus {
+    top: 0;
+  }
+}
+
+.layout {
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+
+  &__content {
+    flex: 1;
+    overflow-y: auto;
+    background-color: #0f0f1a;
+    color: #e0e0e0;
+    padding: 1.5rem;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

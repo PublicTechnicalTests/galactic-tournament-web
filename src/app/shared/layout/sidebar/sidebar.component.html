@@ -1,0 +1,43 @@
+<aside
+  class="sidebar"
+  [class.sidebar--collapsed]="isCollapsed()"
+  [attr.aria-expanded]="!isCollapsed()"
+  aria-label="Main navigation"
+>
+  <div class="sidebar__header">
+    @if (!isCollapsed()) {
+      <span class="sidebar__title" aria-hidden="true">
+        {{ 'SIDEBAR.TITLE' | translate }}
+      </span>
+    }
+    <button
+      class="sidebar__toggle"
+      type="button"
+      [attr.aria-label]="(isCollapsed() ? 'SIDEBAR.TOGGLE_OPEN' : 'SIDEBAR.TOGGLE_CLOSE') | translate"
+      (click)="toggleCollapse()"
+    >
+      <span aria-hidden="true">{{ isCollapsed() ? '☰' : '✕' }}</span>
+    </button>
+  </div>
+
+  <nav [attr.aria-label]="'SIDEBAR.TITLE' | translate">
+    <ul class="sidebar__nav" role="list">
+      @for (item of navItems; track item.route) {
+        <li class="sidebar__nav-item">
+          <a
+            [routerLink]="item.route"
+            routerLinkActive="sidebar__nav-link--active"
+            ariaCurrentWhenActive="page"
+            class="sidebar__nav-link"
+            [attr.title]="!isCollapsed() ? null : (item.labelKey | translate)"
+          >
+            <span class="sidebar__nav-icon" aria-hidden="true">{{ item.icon }}</span>
+            @if (!isCollapsed()) {
+              <span class="sidebar__nav-label">{{ item.labelKey | translate }}</span>
+            }
+          </a>
+        </li>
+      }
+    </ul>
+  </nav>
+</aside>
