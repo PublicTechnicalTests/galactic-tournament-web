@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewChild, signal } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { ListSpeciesComponent } from './list-species/list-species.component';
+import { AddSpeciesComponent } from '../feature-add-species/add-species/add-species.component';
 
 /**
  * FeatureListSpeciesComponent
@@ -14,7 +15,7 @@ import { ListSpeciesComponent } from './list-species/list-species.component';
  */
 @Component({
   selector: 'app-feature-list-species',
-  imports: [TranslateModule, ListSpeciesComponent],
+  imports: [TranslateModule, ListSpeciesComponent, AddSpeciesComponent],
   templateUrl: './feature-list-species.component.html',
   styleUrl: './feature-list-species.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -23,22 +24,22 @@ export class FeatureListSpeciesComponent {
   /** Reference to the list child to call reload after an add operation. */
   @ViewChild(ListSpeciesComponent) protected listRef!: ListSpeciesComponent;
 
-  /** Controls visibility of the add-species modal (wired in feature-04). */
-  protected showAddModal = false;
+  /** Controls visibility of the add-species modal. */
+  protected readonly showAddModal = signal(false);
 
   /** Opens the add-species modal. */
   protected openAddModal(): void {
-    this.showAddModal = true;
+    this.showAddModal.set(true);
   }
 
   /** Called by the add-species modal when a species has been saved. */
   protected onSpeciesAdded(): void {
-    this.showAddModal = false;
+    this.showAddModal.set(false);
     this.listRef?.reload();
   }
 
   /** Called by the add-species modal when the operation is cancelled. */
   protected onAddCancelled(): void {
-    this.showAddModal = false;
+    this.showAddModal.set(false);
   }
 }

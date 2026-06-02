@@ -19,6 +19,12 @@
   <!-- ── Species list ──────────────────────────────────────────────────────── -->
   <app-list-species></app-list-species>
 
-  <!-- Add-species modal will be inserted here in feature-04 -->
+  <!-- Add-species modal -->
+  @if (showAddModal()) {
+    <app-add-species
+      (added)="onSpeciesAdded()"
+      (cancelled)="onAddCancelled()"
+    ></app-add-species>
+  }
 
 </div>
