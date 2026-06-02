@@ -10,5 +10,34 @@
       "DASHBOARD": "Dashboard",
       "SPECIES": "Especies"
     }
+  },
+  "DASHBOARD": {
+    "TITLE": "Dashboard",
+    "SUBTITLE": "Panel de control del Torneo Galáctico",
+    "ACTIONS": {
+      "TITLE": "Acciones",
+      "SIMULATE_TOURNAMENT": "Simular Torneo",
+      "SIMULATE_TOURNAMENT_ARIA": "Iniciar simulación completa del torneo galáctico",
+      "SIMULATE_COMBAT": "Simular Combate",
+      "SIMULATE_COMBAT_ARIA": "Iniciar simulación de un combate individual"
+    },
+    "RANKING": {
+      "TITLE": "Ranking",
+      "SUBTITLE": "Clasificación actual de los combatientes",
+      "EMPTY": "No hay combates registrados aún. Simula un torneo para ver el ranking.",
+      "TABLE": {
+        "POSITION": "Pos.",
+        "SPECIES": "Especie",
+        "WINS": "Victorias",
+        "LOSSES": "Derrotas",
+        "POINTS": "Puntos"
+      }
+    },
+    "SIMULATION": {
+      "TOURNAMENT_RUNNING": "Simulando torneo...",
+      "COMBAT_RUNNING": "Simulando combate...",
+      "TOURNAMENT_DONE": "¡Torneo completado!",
+      "COMBAT_DONE": "¡Combate completado!"
+    }
   }
 }
