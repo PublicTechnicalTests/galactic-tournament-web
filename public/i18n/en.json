@@ -54,7 +54,30 @@
     "TOGGLE_CLOSE": "Close navigation",
     "MENU": {
       "DASHBOARD": "Dashboard",
-      "SPECIES": "Species"
+      "SPECIES": "Species",
+      "RANKING": "Ranking"
+    }
+  },
+  "RANKING": {
+    "TITLE": "Galactic Ranking",
+    "SUBTITLE": "Global standings of universe combatants",
+    "SIMULATING": "Simulating...",
+    "EMPTY": "No combats recorded yet. Simulate a tournament to see the ranking.",
+    "ACTIONS": {
+      "ARIA": "Tournament actions",
+      "SIMULATE_TOURNAMENT": "Simulate Tournament",
+      "SIMULATE_TOURNAMENT_ARIA": "Start a full galactic tournament simulation",
+      "SIMULATE_COMBAT": "Simulate Combat",
+      "SIMULATE_COMBAT_ARIA": "Start a single combat simulation"
+    },
+    "TABLE": {
+      "REGION_ARIA": "Galactic ranking table",
+      "CAPTION": "Galactic tournament species standings",
+      "POSITION": "Pos.",
+      "SPECIES": "Species",
+      "WINS": "Wins",
+      "LOSSES": "Losses",
+      "POINTS": "Points"
     }
   },
   "DASHBOARD": {

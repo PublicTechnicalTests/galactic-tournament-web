@@ -1,0 +1,85 @@
+<div class="feature-list-ranking">
+
+  <!-- ── Header ────────────────────────────────────────────────────────────── -->
+  <div class="feature-list-ranking__header">
+    <div>
+      <h1 class="feature-list-ranking__title">{{ 'RANKING.TITLE' | translate }}</h1>
+      <p class="feature-list-ranking__subtitle">{{ 'RANKING.SUBTITLE' | translate }}</p>
+    </div>
+
+    <div class="feature-list-ranking__actions" role="group" [attr.aria-label]="'RANKING.ACTIONS.ARIA' | translate">
+      <button
+        type="button"
+        class="btn btn--secondary"
+        [disabled]="isSimulating()"
+        [attr.aria-label]="'RANKING.ACTIONS.SIMULATE_COMBAT_ARIA' | translate"
+        (click)="simulateCombat()"
+      >
+        ⚔️ {{ 'RANKING.ACTIONS.SIMULATE_COMBAT' | translate }}
+      </button>
+      <button
+        type="button"
+        class="btn btn--primary"
+        [disabled]="isSimulating()"
+        [attr.aria-label]="'RANKING.ACTIONS.SIMULATE_TOURNAMENT_ARIA' | translate"
+        (click)="simulateTournament()"
+      >
+        🏆 {{ 'RANKING.ACTIONS.SIMULATE_TOURNAMENT' | translate }}
+      </button>
+    </div>
+  </div>
+
+  <!-- ── Simulating status ─────────────────────────────────────────────────── -->
+  @if (isSimulating()) {
+    <p class="feature-list-ranking__status" role="status" aria-live="polite">
+      {{ 'RANKING.SIMULATING' | translate }}
+    </p>
+  }
+
+  <!-- ── Ranking table ─────────────────────────────────────────────────────── -->
+  <section
+    class="feature-list-ranking__table-wrapper"
+    role="region"
+    [attr.aria-label]="'RANKING.TABLE.REGION_ARIA' | translate"
+  >
+    @if (!hasRanking()) {
+      <p class="feature-list-ranking__empty" role="status">
+        {{ 'RANKING.EMPTY' | translate }}
+      </p>
+    } @else {
+      <table class="ranking-table" aria-describedby="ranking-caption">
+        <caption id="ranking-caption" class="sr-only">
+          {{ 'RANKING.TABLE.CAPTION' | translate }}
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col">{{ 'RANKING.TABLE.POSITION' | translate }}</th>
+            <th scope="col">{{ 'RANKING.TABLE.SPECIES'  | translate }}</th>
+            <th scope="col">{{ 'RANKING.TABLE.WINS'     | translate }}</th>
+            <th scope="col">{{ 'RANKING.TABLE.LOSSES'   | translate }}</th>
+            <th scope="col">{{ 'RANKING.TABLE.POINTS'   | translate }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (entry of ranking(); track trackBySpecies($index, entry); let i = $index) {
+            <tr [class.ranking-table__row--podium]="i < 3">
+              <td class="ranking-table__position">
+                @if (i === 0) { 🥇 }
+                @else if (i === 1) { 🥈 }
+                @else if (i === 2) { 🥉 }
+                @else { {{ i + 1 }} }
+              </td>
+              <td class="ranking-table__species">{{ entry.speciesName }}</td>
+              <td class="ranking-table__wins">{{ entry.wins }}</td>
+              <td class="ranking-table__losses">{{ entry.losses }}</td>
+              <td class="ranking-table__points">
+                <span class="ranking-table__points-badge">{{ entry.points }}</span>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    }
+  </section>
+
+</div>

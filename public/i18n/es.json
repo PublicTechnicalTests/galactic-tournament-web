@@ -54,7 +54,30 @@
     "TOGGLE_CLOSE": "Cerrar navegación",
     "MENU": {
       "DASHBOARD": "Dashboard",
-      "SPECIES": "Especies"
+      "SPECIES": "Especies",
+      "RANKING": "Ranking"
+    }
+  },
+  "RANKING": {
+    "TITLE": "Ranking Galáctico",
+    "SUBTITLE": "Clasificación global de combatientes del universo",
+    "SIMULATING": "Simulando...",
+    "EMPTY": "No hay combates registrados aún. Simula un torneo para ver el ranking.",
+    "ACTIONS": {
+      "ARIA": "Acciones del torneo",
+      "SIMULATE_TOURNAMENT": "Simular Torneo",
+      "SIMULATE_TOURNAMENT_ARIA": "Iniciar simulación completa del torneo galáctico",
+      "SIMULATE_COMBAT": "Simular Combate",
+      "SIMULATE_COMBAT_ARIA": "Iniciar simulación de un combate individual"
+    },
+    "TABLE": {
+      "REGION_ARIA": "Tabla del ranking galáctico",
+      "CAPTION": "Clasificación de especies del torneo galáctico",
+      "POSITION": "Pos.",
+      "SPECIES": "Especie",
+      "WINS": "Victorias",
+      "LOSSES": "Derrotas",
+      "POINTS": "Puntos"
     }
   },
   "DASHBOARD": {

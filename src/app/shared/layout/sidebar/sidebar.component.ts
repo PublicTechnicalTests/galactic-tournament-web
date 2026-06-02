@@ -33,7 +33,8 @@ export class SidebarComponent {
   /** Ordered list of navigation items displayed in the sidebar menu. */
   protected readonly navItems: readonly NavItem[] = [
     { labelKey: 'SIDEBAR.MENU.DASHBOARD', icon: '🏆', route: '/dashboard' },
-    { labelKey: 'SIDEBAR.MENU.SPECIES', icon: '👽', route: '/species' },
+    { labelKey: 'SIDEBAR.MENU.SPECIES',   icon: '👽', route: '/species'   },
+    { labelKey: 'SIDEBAR.MENU.RANKING',   icon: '📊', route: '/ranking'   },
   ];
 
   /** Toggles the sidebar between expanded and collapsed states. */

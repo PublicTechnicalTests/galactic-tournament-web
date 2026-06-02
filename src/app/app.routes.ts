@@ -21,6 +21,13 @@ export const routes: Routes = [
             (m) => m.SPECIES_ROUTES
           ),
       },
+      {
+        path: 'ranking',
+        loadChildren: () =>
+          import('./packages/Ranking/ranking.routes').then(
+            (m) => m.RANKING_ROUTES
+          ),
+      },
       // Additional feature routes are registered iteratively in subsequent features
     ],
   },
