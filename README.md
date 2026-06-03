@@ -1,59 +1,91 @@
-# GalacticTournamentWeb
+# Galactic Tournament Web
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.13.
+Aplicación web SPA desarrollada en Angular para visualizar y gestionar el torneo galáctico, incluyendo el dashboard principal, listado de especies y ranking de participantes.
 
-## Development server
+## Descripción breve
 
-To start a local development server, run:
+Galactic Tournament Web es una interfaz frontend para explorar la información del torneo galáctico:
 
-```bash
-ng serve
-```
+- Dashboard con simulación de torneo y combate.
+- Gestión y visualización de especies.
+- Ranking de participantes.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+La app utiliza Angular 21, TypeScript y rutas lazy-loaded para organizar las funcionalidades por módulos.
 
-## Code scaffolding
+## Requisitos
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Antes de ejecutar el proyecto, asegúrate de tener instalado:
 
-```bash
-ng generate component component-name
-```
+- Node.js 20 o superior
+- npm 10 o superior
+- Angular CLI 21 (se puede instalar con `npm install -g @angular/cli@21`)
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Opcional:
 
-```bash
-ng generate --help
-```
+- Docker y Docker Compose, si deseas ejecutar la aplicación en contenedor.
 
-## Building
+## Instalación
 
-To build the project run:
+1. Clona el repositorio:
 
-```bash
-ng build
-```
+   ```bash
+   git clone <url-del-repositorio>
+   cd galactic-tournament-web
+   ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+2. Instala las dependencias:
 
-## Running unit tests
+   ```bash
+   npm install
+   ```
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## Ejecución
 
-```bash
-ng test
-```
+### Modo desarrollo
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+Inicia el servidor de desarrollo con:
 
 ```bash
-ng e2e
+npm start
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Luego abre la siguiente URL en tu navegador:
 
-## Additional Resources
+```text
+http://localhost:4200/
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+La aplicación se recargará automáticamente al modificar archivos fuente.
+
+### Compilación para producción
+
+Para generar la versión lista para despliegue:
+
+```bash
+npm run build
+```
+
+Los artefactos se generarán en la carpeta `dist/galactic-tournament-web/`.
+
+### Pruebas
+
+Ejecuta la suite de pruebas con:
+
+```bash
+npm test
+```
+
+### Ejecución con Docker
+
+Si prefieres ejecutar la aplicación en un contenedor:
+
+```bash
+docker compose up --build
+```
+
+La aplicación quedará disponible en:
+
+```text
+http://localhost/
+```
+
