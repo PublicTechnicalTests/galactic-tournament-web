@@ -1,0 +1,34 @@
+# Dependencies – never needed in the image, biggest folder by far
+node_modules/
+
+# Angular build output
+dist/
+
+# Version control
+.git/
+.gitignore
+.gitattributes
+
+# IDE / editor files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS artefacts
+.DS_Store
+Thumbs.db
+
+# Test artefacts
+coverage/
