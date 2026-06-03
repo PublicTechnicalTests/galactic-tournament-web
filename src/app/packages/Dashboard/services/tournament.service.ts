@@ -1,5 +1,7 @@
-import { Injectable, signal, computed } from '@angular/core';
+import { Injectable, signal, computed, inject } from '@angular/core';
 import { CombatResult, RankingEntry } from '../models/ranking.model';
+import { SpeciesService } from '../../Species/services/species.service';
+import { Species } from '../../Species/models/species.model';
 
 /**
  * TournamentService
@@ -12,18 +14,14 @@ import { CombatResult, RankingEntry } from '../models/ranking.model';
  */
 @Injectable({ providedIn: 'root' })
 export class TournamentService {
-  /** Sample species pool used in simulations. */
-  private readonly speciesPool: readonly string[] = [
-    'Zorgons', 'Nebulites', 'Crystalloids', 'Voidwalkers',
-    'Plasmaroids', 'Quantumites', 'Shadowbeasts', 'Luminarks',
-  ];
+  private readonly speciesService = inject(SpeciesService);
 
   /** Internal writable signal holding all ranking entries. */
   private readonly _ranking = signal<RankingEntry[]>([]);
 
-  /** Public read-only computed view of the ranking, sorted by points desc. */
+  /** Public read-only computed view of the ranking, sorted by wins desc. */
   readonly ranking = computed<RankingEntry[]>(() =>
-    [...this._ranking()].sort((a, b) => b.points - a.points || b.wins - a.wins)
+    [...this._ranking()].sort((a, b) => b.wins - a.wins)
   );
 
   /** Indicates whether a simulation is currently in progress. */
@@ -38,20 +36,22 @@ export class TournamentService {
    * Results are aggregated and stored in the ranking signal.
    */
   simulateTournament(): void {
+    const species = this.speciesService.allSpecies();
+    if (species.length < 2) return;
+
     this.isSimulating.set(true);
     this._ranking.set([]);
 
-    const entries = this.speciesPool.map<RankingEntry>((name, id) => ({
-      speciesId: id + 1,
-      speciesName: name,
+    const entries = species.map<RankingEntry>((s) => ({
+      speciesId: s.id,
+      speciesName: s.name,
       wins: 0,
       losses: 0,
-      points: 0,
     }));
 
     for (let i = 0; i < entries.length; i++) {
       for (let j = i + 1; j < entries.length; j++) {
-        const result = this.runCombat(entries[i], entries[j]);
+        const result = this.runCombat(species[i], entries[i], species[j], entries[j]);
         this.lastCombatResult.set(result);
       }
     }
@@ -65,18 +65,23 @@ export class TournamentService {
    * Updates only the two participants in the existing ranking (or adds them).
    */
   simulateCombat(): void {
+    const species = this.speciesService.allSpecies();
+    if (species.length < 2) return;
+
     this.isSimulating.set(true);
 
-    const pool = [...this.speciesPool];
-    const idxA = Math.floor(Math.random() * pool.length);
+    const idxA = Math.floor(Math.random() * species.length);
     let idxB: number;
-    do { idxB = Math.floor(Math.random() * pool.length); } while (idxB === idxA);
+    do { idxB = Math.floor(Math.random() * species.length); } while (idxB === idxA);
+
+    const speciesA = species[idxA];
+    const speciesB = species[idxB];
 
     const current = [...this._ranking()];
-    const entryA = this.getOrCreate(current, idxA + 1, pool[idxA]);
-    const entryB = this.getOrCreate(current, idxB + 1, pool[idxB]);
+    const entryA = this.getOrCreate(current, speciesA.id, speciesA.name);
+    const entryB = this.getOrCreate(current, speciesB.id, speciesB.name);
 
-    const result = this.runCombat(entryA, entryB);
+    const result = this.runCombat(speciesA, entryA, speciesB, entryB);
     this.lastCombatResult.set(result);
     this._ranking.set(current);
     this.isSimulating.set(false);
@@ -94,30 +99,31 @@ export class TournamentService {
   private getOrCreate(entries: RankingEntry[], id: number, name: string): RankingEntry {
     let entry = entries.find((e) => e.speciesId === id);
     if (!entry) {
-      entry = { speciesId: id, speciesName: name, wins: 0, losses: 0, points: 0 };
+      entry = { speciesId: id, speciesName: name, wins: 0, losses: 0 };
       entries.push(entry);
     }
     return entry;
   }
 
   /**
-   * Runs a combat between two entries using a weighted random outcome.
-   * The species with higher losses has a slight advantage (underdog bonus).
-   * Mutates both entries in-place.
-   * @param a First combatant.
-   * @param b Second combatant.
-   * @returns The `CombatResult` for this fight.
+   * Runs a deterministic combat between two species.
+   * The species with higher power wins; on a tie, alphabetical order decides.
+   * Mutates both ranking entries in-place.
    */
-  private runCombat(a: RankingEntry, b: RankingEntry): CombatResult {
-    const aWins = Math.random() > 0.5;
-    const winner = aWins ? a : b;
-    const loser = aWins ? b : a;
-    const points = Math.floor(Math.random() * 10) + 1;
+  private runCombat(
+    speciesA: Species, entryA: RankingEntry,
+    speciesB: Species, entryB: RankingEntry,
+  ): CombatResult {
+    const aWins = speciesA.power !== speciesB.power
+      ? speciesA.power > speciesB.power
+      : speciesA.name.localeCompare(speciesB.name) < 0;
+
+    const winner = aWins ? entryA : entryB;
+    const loser  = aWins ? entryB : entryA;
 
     winner.wins++;
-    winner.points += points;
     loser.losses++;
 
-    return { winner: winner.speciesName, loser: loser.speciesName, pointsAwarded: points };
+    return { winner: winner.speciesName, loser: loser.speciesName };
   }
 }

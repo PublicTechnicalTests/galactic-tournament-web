@@ -76,8 +76,7 @@
       "POSITION": "Pos.",
       "SPECIES": "Species",
       "WINS": "Wins",
-      "LOSSES": "Losses",
-      "POINTS": "Points"
+      "LOSSES": "Losses"
     }
   },
   "DASHBOARD": {
@@ -98,8 +97,7 @@
         "POSITION": "Pos.",
         "SPECIES": "Species",
         "WINS": "Wins",
-        "LOSSES": "Losses",
-        "POINTS": "Points"
+        "LOSSES": "Losses"
       }
     },
     "SIMULATION": {

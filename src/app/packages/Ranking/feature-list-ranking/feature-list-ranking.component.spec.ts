@@ -8,10 +8,10 @@ import { TournamentService } from '../../Dashboard/services/tournament.service';
 import { RankingEntry } from '../../Dashboard/models/ranking.model';
 
 const MOCK_RANKING: RankingEntry[] = [
-  { speciesId: 1, speciesName: 'Zorgons',      wins: 7, losses: 0, points: 21 },
-  { speciesId: 2, speciesName: 'Nebulites',    wins: 6, losses: 1, points: 18 },
-  { speciesId: 3, speciesName: 'Crystalloids', wins: 5, losses: 2, points: 15 },
-  { speciesId: 4, speciesName: 'Voidwalkers',  wins: 4, losses: 3, points: 12 },
+  { speciesId: 1, speciesName: 'Zorgons',      wins: 7, losses: 0 },
+  { speciesId: 2, speciesName: 'Nebulites',    wins: 6, losses: 1 },
+  { speciesId: 3, speciesName: 'Crystalloids', wins: 5, losses: 2 },
+  { speciesId: 4, speciesName: 'Voidwalkers',  wins: 4, losses: 3 },
 ];
 
 function buildMockService(entries: RankingEntry[] = [], simulating = false) {

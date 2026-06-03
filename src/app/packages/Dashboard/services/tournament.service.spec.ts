@@ -29,9 +29,9 @@ describe('TournamentService', () => {
 
   // ── simulateTournament ─────────────────────────────────────────────────────
 
-  it('simulateTournament should populate ranking with 8 entries', () => {
+  it('simulateTournament should populate ranking with 12 entries', () => {
     service.simulateTournament();
-    expect(service.ranking().length).toBe(8);
+    expect(service.ranking().length).toBe(12);
   });
 
   it('simulateTournament should return isSimulating = false when done', () => {
@@ -44,26 +44,26 @@ describe('TournamentService', () => {
     expect(service.lastCombatResult()).not.toBeNull();
   });
 
-  it('simulateTournament should produce ranking sorted by points descending', () => {
+  it('simulateTournament should produce ranking sorted by wins descending', () => {
     service.simulateTournament();
-    const points = service.ranking().map((e) => e.points);
-    for (let i = 0; i < points.length - 1; i++) {
-      expect(points[i]).toBeGreaterThanOrEqual(points[i + 1]);
+    const wins = service.ranking().map((e) => e.wins);
+    for (let i = 0; i < wins.length - 1; i++) {
+      expect(wins[i]).toBeGreaterThanOrEqual(wins[i + 1]);
     }
   });
 
-  it('simulateTournament each entry should have wins + losses = 7 (round-robin)', () => {
+  it('simulateTournament each entry should have wins + losses = 11 (round-robin)', () => {
     service.simulateTournament();
     for (const entry of service.ranking()) {
-      expect(entry.wins + entry.losses).toBe(7);
+      expect(entry.wins + entry.losses).toBe(11);
     }
   });
 
   it('simulateTournament total wins across all entries should equal total combats', () => {
     service.simulateTournament();
     const totalWins = service.ranking().reduce((sum, e) => sum + e.wins, 0);
-    // 8 species, C(8,2) = 28 combats
-    expect(totalWins).toBe(28);
+    // 12 species, C(12,2) = 66 combats
+    expect(totalWins).toBe(66);
   });
 
   // ── simulateCombat ─────────────────────────────────────────────────────────
@@ -80,13 +80,6 @@ describe('TournamentService', () => {
     expect(result!.winner).toBeTruthy();
     expect(result!.loser).toBeTruthy();
     expect(result!.winner).not.toBe(result!.loser);
-  });
-
-  it('simulateCombat should award between 1 and 10 points', () => {
-    service.simulateCombat();
-    const result = service.lastCombatResult()!;
-    expect(result.pointsAwarded).toBeGreaterThanOrEqual(1);
-    expect(result.pointsAwarded).toBeLessThanOrEqual(10);
   });
 
   it('simulateCombat should return isSimulating = false when done', () => {
