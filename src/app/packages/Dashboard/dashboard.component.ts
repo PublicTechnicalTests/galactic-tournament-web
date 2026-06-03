@@ -2,10 +2,10 @@ import {
   ChangeDetectionStrategy,
   Component,
   inject,
-  computed,
 } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { TournamentService } from './services/tournament.service';
+import { FeatureListRankingComponent } from '../Ranking/feature-list-ranking/feature-list-ranking.component';
 
 /**
  * DashboardComponent
@@ -22,7 +22,7 @@ import { TournamentService } from './services/tournament.service';
  */
 @Component({
   selector: 'app-dashboard',
-  imports: [TranslateModule],
+  imports: [TranslateModule, FeatureListRankingComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -30,17 +30,11 @@ import { TournamentService } from './services/tournament.service';
 export class DashboardComponent {
   private readonly tournamentService = inject(TournamentService);
 
-  /** Sorted ranking entries from the tournament service. */
-  protected readonly ranking = this.tournamentService.ranking;
-
   /** True while a simulation is running — disables action buttons. */
   protected readonly isSimulating = this.tournamentService.isSimulating;
 
   /** Result summary of the last completed combat. */
   protected readonly lastCombatResult = this.tournamentService.lastCombatResult;
-
-  /** Whether the ranking table should be shown. */
-  protected readonly hasRanking = computed(() => this.ranking().length > 0);
 
   /** Triggers a full tournament simulation. */
   protected simulateTournament(): void {

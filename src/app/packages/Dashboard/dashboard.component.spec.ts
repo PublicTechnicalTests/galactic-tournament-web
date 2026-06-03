@@ -8,14 +8,13 @@ import { RankingEntry, CombatResult } from './models/ranking.model';
 
 /** Minimal mock that mirrors the signals used by the component. */
 const mockRankingEntries: RankingEntry[] = [
-  { speciesId: 1, speciesName: 'Zorgons', wins: 5, losses: 2, points: 30 },
-  { speciesId: 2, speciesName: 'Nebulites', wins: 3, losses: 4, points: 18 },
+  { speciesId: 1, speciesName: 'Zorgons',   wins: 5, losses: 2 },
+  { speciesId: 2, speciesName: 'Nebulites', wins: 3, losses: 4 },
 ];
 
 const mockCombatResult: CombatResult = {
   winner: 'Zorgons',
-  loser: 'Nebulites',
-  pointsAwarded: 7,
+  loser:  'Nebulites',
 };
 
 function createMockService(overrides: Partial<{
@@ -32,7 +31,7 @@ function createMockService(overrides: Partial<{
     isSimulating,
     lastCombatResult,
     simulateTournament: vi.fn(),
-    simulateCombat: vi.fn(),
+    simulateCombat:     vi.fn(),
   };
 }
 
@@ -81,7 +80,7 @@ describe('DashboardComponent', () => {
   });
 
   it('should show empty state when ranking is empty', () => {
-    expect(nativeEl.querySelector('.dashboard__empty')).not.toBeNull();
+    expect(nativeEl.querySelector('.feature-list-ranking__empty')).not.toBeNull();
     expect(nativeEl.querySelector('.ranking-table')).toBeNull();
   });
 
@@ -161,11 +160,6 @@ describe('DashboardComponent', () => {
     expect(section.getAttribute('aria-labelledby')).toBe('actions-title');
   });
 
-  it('should have aria-labelledby on ranking section', () => {
-    const section = nativeEl.querySelector('.dashboard__ranking')!;
-    expect(section.getAttribute('aria-labelledby')).toBe('ranking-title');
-  });
-
   it('should have aria-live="polite" on empty state', () => {
     const empty = nativeEl.querySelector('.dashboard__empty')!;
     expect(empty.getAttribute('role')).toBe('status');
@@ -175,6 +169,6 @@ describe('DashboardComponent', () => {
     mockService.ranking.set(mockRankingEntries);
     fixture.detectChanges();
     const headers = nativeEl.querySelectorAll('th[scope="col"]');
-    expect(headers.length).toBe(5);
+    expect(headers.length).toBe(4);
   });
 });

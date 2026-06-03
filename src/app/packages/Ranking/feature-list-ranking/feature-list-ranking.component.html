@@ -57,7 +57,6 @@
             <th scope="col">{{ 'RANKING.TABLE.SPECIES'  | translate }}</th>
             <th scope="col">{{ 'RANKING.TABLE.WINS'     | translate }}</th>
             <th scope="col">{{ 'RANKING.TABLE.LOSSES'   | translate }}</th>
-            <th scope="col">{{ 'RANKING.TABLE.POINTS'   | translate }}</th>
           </tr>
         </thead>
         <tbody>
@@ -72,9 +71,6 @@
               <td class="ranking-table__species">{{ entry.speciesName }}</td>
               <td class="ranking-table__wins">{{ entry.wins }}</td>
               <td class="ranking-table__losses">{{ entry.losses }}</td>
-              <td class="ranking-table__points">
-                <span class="ranking-table__points-badge">{{ entry.points }}</span>
-              </td>
             </tr>
           }
         </tbody>
