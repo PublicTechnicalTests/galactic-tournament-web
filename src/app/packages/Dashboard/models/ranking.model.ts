@@ -10,8 +10,6 @@ export interface RankingEntry {
   wins: number;
   /** Number of lost combats. */
   losses: number;
-  /** Total accumulated points. */
-  points: number;
 }
 
 /**
@@ -22,6 +20,4 @@ export interface CombatResult {
   winner: string;
   /** Name of the losing species. */
   loser: string;
-  /** Points awarded to the winner. */
-  pointsAwarded: number;
 }
